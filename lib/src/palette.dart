@@ -230,7 +230,7 @@ class HSLWithHueColorPainter extends CustomPainter {
             (useWhiteForeground(hslColor.toColor())
                 ? Colors.white
                 : Colors.black)
-        ..strokeWidth = 1.5
+        ..strokeWidth = 2.5
         ..style = PaintingStyle.stroke,
     );
   }
@@ -1252,13 +1252,16 @@ class ColorIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: width,
-      height: height,
-      decoration: BoxDecoration(
-        border: Border.all(color: const Color(0xffdddddd)),
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+        width: height * 0.7,
+        height: height * 0.7,
+        decoration: BoxDecoration(
+          border: Border.all(color: const Color(0xffdddddd)),
+        ),
+        child: Container(color: hsvColor.toColor()),
       ),
-      child: Container(color: hsvColor.toColor()),
     );
   }
 }
